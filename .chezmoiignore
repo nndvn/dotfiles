@@ -1,0 +1,9 @@
+README.md
+
+{{- if eq .chezmoi.os "linux" }}
+.ssh/config
+Brewfile
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+{{- end }}

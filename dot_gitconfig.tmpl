@@ -1,0 +1,10 @@
+[user]
+	name = "{{ .name }}"
+	email = {{ .email }}
+	signingkey = {{ .key }}
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg

@@ -1,0 +1,19 @@
+{{ $name := promptString "full name" "NND" -}}
+{{ $email := promptString "email address" "d@nnd.vn" -}}
+{{ $key := promptString "key id" "0xF2591EC12FBF999F" -}}
+
+data:
+    name: {{ $name | quote }}
+    email: {{ $email | quote }}
+    key: {{ $key | quote }} 
+
+encryption: "gpg"
+
+gpg:
+    recipient: {{ $key | quote }}
+    args:
+    - "--quiet"
+
+git:
+    autoCommit: true
+    autoPush: true
