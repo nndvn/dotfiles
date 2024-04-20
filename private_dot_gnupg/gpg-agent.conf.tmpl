@@ -11,6 +11,6 @@ enable-ssh-support
 
 # pinentry tool
 # select PIN entry program (qt, curses, gnome3,...)
-{{- if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "darwin" }}
 pinentry-program /usr/local/bin/pinentry-mac
-{{- end }}
+{{ end }}
