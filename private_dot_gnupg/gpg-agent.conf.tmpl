@@ -1,0 +1,14 @@
+# https://www.gnupg.org/documentation/manuals/gnupg/Agent-Options.html
+
+# password caching
+# extend re-use window to 2hrs
+default-cache-ttl 7200
+# force re-auth every half-day
+max-cache-ttl 43200
+
+# ssh
+enable-ssh-support
+
+# pinentry tool
+# select PIN entry program (qt, curses, gnome3,...)
+pinentry-program /usr/local/bin/pinentry-mac
