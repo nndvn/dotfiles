@@ -46,9 +46,6 @@ export LANG=en_US.UTF-8
 
 # machine-specific configuration
 
-{{ if (eq .chezmoi.os "darwin") -}}
-# macos
-
 # enable SSH access using a GPG key for authentication
 # configure SSH to use GPG
 unset SSH_AGENT_PID
@@ -63,6 +60,7 @@ gpgconf --launch gpg-agent
 # gpg-connect-agent reloadagent /bye > /dev/null
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
+{{ if (eq .chezmoi.os "darwin") -}}
 # nvm
 export HOMEBREW_PREFIX=$(brew --prefix)
 export NVM_DIR="$HOME/.nvm"
