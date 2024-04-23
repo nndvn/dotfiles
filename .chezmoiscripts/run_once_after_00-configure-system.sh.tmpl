@@ -10,7 +10,7 @@ running "checking system platform"
 	ok "linux platform"
 {{ else if (eq .chezmoi.os "darwin") }}
 	ok "macos platform"
-    {{/* template "macos" . */}}
+    {{ template "macos" . }}
 {{ else }}
     fail "platform not supported"
 	exit 0

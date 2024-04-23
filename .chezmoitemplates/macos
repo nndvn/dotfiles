@@ -1,0 +1,18 @@
+# ~/.macos — https://mths.be/macos
+
+running "macos set defaults"
+
+# set computer name
+# system preferences - sharing
+running "set computer name"
+sudo scutil --set ComputerName
+# sudo scutil --set HostName
+sudo scutil --set LocalHostName
+
+# safari
+# show full url
+defaults write com.apple.Safari "ShowFullURLInSmartSearchField" -bool "true" && killall Safari
+
+# finished
+ok "finished setting macos defaults"
+warn "note that some of these changes require a logout/restart to take effect"
