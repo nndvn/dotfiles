@@ -136,7 +136,6 @@
         };
     };
     PrivacyReportStartPageNumberOfTrackers =     {
-        "5C7BEF10-2E46-4A41-812D-77F09F4628DC" = 0;
         DefaultProfile = 147;
     };
     PrivateBrowsingExplanationState = 1;
@@ -196,12 +195,13 @@
     ShowRecentlyClosedTabsPreferenceKey = 0;
     ShowSidebarInNewWindows = 0;
     ShowSidebarInTopSites = 0;
-    ShowStandaloneTabBar = 1;
+    ShowStandaloneTabBar = 0;
     ShowTabGroupFavoritesPreferenceKey = 0;
     SidebarViewModeIdentifier = 0;
     SkipLoadingEnabledAppExtensionsAtLaunch = 1;
     SkipLoadingEnabledContentBlockersAtLaunch = 1;
     SkipLoadingEnabledWebExtensionsAtLaunch = 1;
+    StartPagePopoverUsesDefaultBackground = 1;
     StartPageSectionOrdering =     (
         tabGroupHeadingIdentifier,
         tabGroupFavoritesItemIdentifier,
@@ -216,7 +216,7 @@
         cloudTabsItemIdentifier,
         recentlyClosedTabsInTabGroupItemIdentifier
     );
-    SuccessfulLaunchTimestamp = "735572579.534314";
+    SuccessfulLaunchTimestamp = "735572814.839128";
     UniversalSearchFeatureNotificationHasBeenDisplayed = 1;
     UserAgentQuirksConfigurationUpdateDate = "2024-04-22 16:07:49 +0000";
     UserStyleSheetEnabled = 0;
@@ -232,7 +232,7 @@
     );
     WBSPasswordWarningTopFraudTargetsLastUpdate = "2024-04-23 13:13:15 +0000";
     WBSPerSiteSettingSyncInitialSyncCompletedKey = 1;
-    WBSPeriodicSyncSuccessesCount = 42;
+    WBSPeriodicSyncSuccessesCount = 43;
     WBSPrivacyProxyAvailabilityAccountType = 2;
     WBSPrivacyProxyAvailabilityActiveOnDefaultNetwork = 1;
     WBSPrivacyProxyAvailabilityServiceStatus = 1;
