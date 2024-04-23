@@ -13,7 +13,7 @@ sudo hostnamectl hostname --static $hostname
 running "looking for docker"
 
 # if command -v docker &> /dev/null; then
-if [[ $(command -v brew) ]]; then
+if [[ $(command -v docker) ]]; then
     ok "docker already installed"
 else
     warn "docker not found"
