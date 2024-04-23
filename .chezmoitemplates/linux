@@ -4,10 +4,10 @@
 running "set computer name & hostname"
 
 read -p "enter computer name: " computer_name
-sudo hostnamectl hostname --pretty $computer_name
+sudo hostnamectl hostname --pretty "$computer_name"
 
 read -p "enter hostname: " hostname
-sudo hostnamectl hostname --static $hostname
+sudo hostnamectl hostname --static "$hostname"
 
 
 running "looking for docker"
