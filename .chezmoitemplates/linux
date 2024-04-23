@@ -1,1 +1,9 @@
 # linux
+
+running "linux set defaults"
+
+running "set computer name"
+read -p "enter computer name: " computer_name
+sudo hostnamectl hostname --pretty $computer_name
+read -p "enter hostname: " hostname
+sudo hostnamectl hostname --static "hostname"
