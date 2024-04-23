@@ -33,19 +33,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias moi="chezmoi"
 
-{{ if (eq .chezmoi.os "linux") -}}
-# linux
-
-# [fix] perl: warning: Setting locale failed.
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LC_TYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
-{{ end -}}
-
-
-# machine-specific configuration
-
 # enable SSH access using a GPG key for authentication
 # configure SSH to use GPG
 unset SSH_AGENT_PID
@@ -59,6 +46,14 @@ gpgconf --launch gpg-agent
 # gpg-connect-agent /bye > /dev/null
 # gpg-connect-agent reloadagent /bye > /dev/null
 gpg-connect-agent updatestartuptty /bye > /dev/null
+
+{{ if (eq .chezmoi.os "linux") -}}
+# [fix] perl: warning: Setting locale failed.
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
+{{ end -}}
 
 {{ if (eq .chezmoi.os "darwin") -}}
 # nvm
