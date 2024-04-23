@@ -1,16 +1,28 @@
+# -----------------------------------------------------------------------------
+# gpg agent configuration (~/.gnupg/gpg-agent.conf)
+#
+# note: after changing the configuration, reload the agent:
+# $ gpg-connect-agent reloadagent /bye
+#
 # https://www.gnupg.org/documentation/manuals/gnupg/Agent-Options.html
+# -----------------------------------------------------------------------------
+
+
+{{ if eq .chezmoi.os "darwin" -}}
+# https://wiki.archlinux.org/title/GnuPG#SSH_agent
+enable-ssh-support
+
+# select PIN entry program (qt, curses, gnome3, or mac...)
+# pinentry-program /usr/bin/pinentry-tty
+# pinentry-program /usr/bin/pinentry-curses
+# pinentry-program /usr/bin/pinentry-gnome3
+pinentry-program /usr/local/bin/pinentry-mac
+{{- end }}
 
 # password caching
 # extend re-use window to 2hrs
 default-cache-ttl 7200
+default-cache-ttl-ssh 7200
 # force re-auth every half-day
 max-cache-ttl 43200
-
-# ssh
-enable-ssh-support
-
-# pinentry tool
-# select PIN entry program (qt, curses, gnome3,...)
-{{ if eq .chezmoi.os "darwin" }}
-pinentry-program /usr/local/bin/pinentry-mac
-{{ end }}
+max-cache-ttl-ssh 43200

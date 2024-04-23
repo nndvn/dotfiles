@@ -1,6 +1,6 @@
-{{ $name := promptString "full name" "NND" -}}
-{{ $email := promptString "email address" "d@nnd.vn" -}}
-{{ $key := promptString "key id" "0xF2591EC12FBF999F" -}}
+{{- $name := promptString "full name" "NND" -}}
+{{- $email := promptString "email address" "d@nnd.vn" -}}
+{{- $key := promptString "key id" "0xF2591EC12FBF999F" -}}
 
 data:
     name: {{ $name | quote }}
