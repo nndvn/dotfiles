@@ -8,6 +8,7 @@ bot "run_once_after_00-configure-system.sh"
 running "checking system platform"
 {{ if (eq .chezmoi.os "linux") }}
 	ok "linux platform"
+	{{ template "linux" . }}
 {{ else if (eq .chezmoi.os "darwin") }}
 	ok "macos platform"
     {{ template "macos" . }}
