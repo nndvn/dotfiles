@@ -27,3 +27,4 @@ fi
 running "manage docker as a non-root user"
 sudo groupadd docker
 sudo usermod -aG docker $USER
+ok "added to docker group"
