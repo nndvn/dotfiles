@@ -12,8 +12,7 @@ sudo hostnamectl hostname --static "$hostname"
 
 running "looking for docker"
 
-# if command -v docker &> /dev/null; then
-if [[ $(command -v docker) ]]; then
+if command -v docker &> /dev/null; then
     ok "docker already installed"
 else
     warn "docker not found"
@@ -23,3 +22,8 @@ else
 	sudo {{ lookPath "sh" }} ./get-docker.sh
 	ok "docker successfully installed"
 fi
+
+
+running "manage docker as a non-root user"
+sudo groupadd docker
+sudo usermod -aG docker $USER
