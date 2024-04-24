@@ -10,7 +10,7 @@ running "checking system platform"
 {{ if (eq .chezmoi.os "linux") }}
 	ok "linux platform"
     running "clean, update & upgrade system"
-    sudo apt autoremove && sudo apt update && sudo apt upgrade -y
+    sudo apt autoremove && sudo apt update && sudo apt full-upgrade -y
     {{ template "apt" . }}
 {{ else if (eq .chezmoi.os "darwin") }}
 	ok "macos platform"

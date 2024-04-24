@@ -9,6 +9,23 @@ sudo hostnamectl hostname --pretty "$computer_name"
 read -p "enter hostname: " hostname
 sudo hostnamectl hostname --static "$hostname"
 
+running "looking for tailscale"
+
+if command -v tailscale &> /dev/null; then
+	ok "tailscale already installed"
+else
+	warn "tailscale not found"
+
+	running "installing tailscale"
+	curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+	curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+	sudo apt update -y
+	sudo apt install tailscale -y
+	sudo tailscale up --operator=$USER
+	ok "show tailscale status"
+	tailscale status
+	ok "docker successfully installed"
+fi
 
 running "looking for docker"
 
@@ -16,15 +33,17 @@ if command -v docker &> /dev/null; then
     ok "docker already installed"
 else
     warn "docker not found"
+
 	running "installing docker"
 	curl -fsSL https://get.docker.com -o get-docker.sh
 	# sudo {{ lookPath "sh" }} ./get-docker.sh --dry-run
 	sudo {{ lookPath "sh" }} ./get-docker.sh
 	ok "docker successfully installed"
+
+	running "manage docker as a non-root user"
+	sudo groupadd docker
+	sudo usermod -aG docker $USER
+	ok "show docker info"
+	docker info
 fi
 
-
-running "manage docker as a non-root user"
-sudo groupadd docker
-sudo usermod -aG docker $USER
-ok "added to docker group"

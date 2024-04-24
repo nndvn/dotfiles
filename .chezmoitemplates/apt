@@ -1,10 +1,13 @@
 # apt
 # https://www.bootc.net/archives/2013/06/07/generating-a-new-gnupg-key/
 
-PACKAGES="gpg
-pass
-pcscd
+PACKAGES="zsh
 git
+gpg
+scdaemon
+pcscd
+pass
+ufw
 neofetch"
 
 running "looking for required packages"
