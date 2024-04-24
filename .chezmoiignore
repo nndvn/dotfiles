@@ -6,4 +6,5 @@ Brewfile
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
+.ssh/sshd_config
 {{- end }}
