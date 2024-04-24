@@ -9,6 +9,7 @@ sudo hostnamectl hostname --pretty "$computer_name"
 read -p "enter hostname: " hostname
 sudo hostnamectl hostname --static "$hostname"
 
+
 running "looking for tailscale"
 
 if command -v tailscale &> /dev/null; then
@@ -26,6 +27,7 @@ else
 	tailscale status
 	ok "docker successfully installed"
 fi
+
 
 running "looking for docker"
 
