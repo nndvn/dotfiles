@@ -63,6 +63,7 @@ export PUID=$(id -u)
 export PGID=$(id -g)
 export EMAIL={{ .email }}
 export DOMAIN=sys.nnd.vn
+export CERT_RESOLVER=http
 {{ end -}}
 
 {{ if (eq .chezmoi.os "darwin") -}}
