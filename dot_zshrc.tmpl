@@ -62,6 +62,7 @@ export NETWORK=lab
 export PUID=$(id -u)
 export PGID=$(id -g)
 export EMAIL={{ .email }}
+export DOMAIN=sys.nnd.vn
 {{ end -}}
 
 {{ if (eq .chezmoi.os "darwin") -}}
