@@ -57,6 +57,10 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+export NETWORK=lab
+export PUID=$(id -u)
+export PGID=$(id -g)
 {{ end -}}
 
 {{ if (eq .chezmoi.os "darwin") -}}
