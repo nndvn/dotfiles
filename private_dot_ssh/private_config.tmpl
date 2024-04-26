@@ -1,9 +1,5 @@
 # ~/.ssh/config
 
-Host *
-    User root
-    Compression yes
-
 Host do01sgp1
     Hostname {{ pass "server/do01sgp1" }}
     User nnd
@@ -13,3 +9,7 @@ Host homelab
     Hostname nnd-s01-rpi5.local
     User nnd
     Port {{ pass "protocol/ssh/port" }}
+
+Host *
+    User root
+    Compression yes
