@@ -3,8 +3,9 @@
 {{- $key := promptString "key id" "0xF2591EC12FBF999F" -}}
 
 {{- $hostname := promptStringOnce . "hostname" "your hostname" -}}
-{{- $choices := list "desktop" "laptop" "convertible" "server" "tablet" "handset" "watch" "embedded" "vm" "container" -}}
-{{- $chassis := promptChoiceOnce . "chassis" "What type of host are you on" $choices -}}
+{{/* $choices := list "desktop" "laptop" "convertible" "server" "tablet" "handset" "watch" "embedded" "vm" "container" */}}
+{{/* $chassis := promptChoiceOnce . "chassis" "What type of host are you on" $choices */}}
+{{- $chassis := promptStringOnce . "chassis" "desktop/laptop/server/vm/container" -}}
 
 data:
     name: {{ $name | quote }}
@@ -13,7 +14,7 @@ data:
 
 scriptEnv:
     HOSTNAME: {{ $hostname | quote }}
-    CHASSIS: {{- $chassis | quote -}}
+    CHASSIS: {{ $chassis | quote }}
 
 encryption: "gpg"
 
