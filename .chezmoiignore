@@ -1,6 +1,7 @@
 README.md
 
 {{- if eq .chezmoi.os "linux" }}
+.gnupg/sshcontrol
 .ssh/config
 Brewfile
 {{- end }}
