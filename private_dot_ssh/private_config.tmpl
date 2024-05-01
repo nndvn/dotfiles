@@ -11,7 +11,7 @@ Host homelab
     Port {{ pass "protocol/ssh/port" }}
     # AddKeysToAgent yes
     # ForwardAgent yes
-    # RemoteForward /run/user/1000/gnupg/S.gpg-agent /Users/nnd/.gnupg/S.gpg-agent.extra
+    RemoteForward /run/user/1000/gnupg/S.gpg-agent /Users/nnd/.gnupg/S.gpg-agent.extra
 
 Host *
     User root
