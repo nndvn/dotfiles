@@ -164,6 +164,7 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdate
 killall "System Preferences"
 ok "done"
 
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 # -----------------------------------------------------------------------------
 # finished

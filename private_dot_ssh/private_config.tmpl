@@ -6,7 +6,8 @@ Host do01sgp1
     Port {{ pass "protocol/ssh/port" }}
 
 Host homelab
-    Hostname nnd-s01-rpi5.local
+    # Hostname nnd-s01-rpi5.local
+    Hostname {{ pass "server/homelab" }}
     User nnd
     Port {{ pass "protocol/ssh/port" }}
     # AddKeysToAgent yes
