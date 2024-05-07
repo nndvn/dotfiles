@@ -1,0 +1,6 @@
+#! /bin/bash
+# alias: brew del
+#:  * `del` [args...]
+#:    `brew del` is an alias for `brew uninstall`
+brew uninstall $*
+
