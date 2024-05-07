@@ -22,11 +22,13 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # editor
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nano'
-else
-  export EDITOR='code --wait'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='nano'
+# else
+#   export EDITOR='code --wait'
+# fi
+# export VISUAL="code --wait"
+export EDITOR=/usr/bin/nano
 
 # aliases
 # alias zshconfig="mate ~/.zshrc"

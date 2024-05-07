@@ -1,3 +1,4 @@
+tap "homebrew/aliases"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "oven-sh/bun"
