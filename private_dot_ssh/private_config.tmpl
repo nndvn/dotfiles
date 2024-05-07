@@ -6,15 +6,13 @@ Host do01sgp1
     Port {{ pass "protocol/ssh/port" }}
 
 Host homelab
-    # Hostname nnd-s01-rpi5.local
     Hostname {{ pass "server/homelab" }}
     User nnd
-    Port {{ pass "protocol/ssh/port" }}
     # AddKeysToAgent yes
     # ForwardAgent yes
-    RemoteForward /run/user/1000/gnupg/S.gpg-agent /Users/nnd/.gnupg/S.gpg-agent.extra
+    # RemoteForward /run/user/1000/gnupg/S.gpg-agent /Users/nnd/.gnupg/S.gpg-agent.extra
 
 Host *
     User root
     Compression yes
-    TCPKeepAlive no
+    TCPKeepAlive yes
