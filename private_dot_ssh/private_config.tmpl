@@ -2,15 +2,19 @@
 
 Host do01sgp1
     Hostname {{ pass "server/do01sgp1" }}
-    User nnd
     Port {{ pass "protocol/ssh/port" }}
 
 Host homelab
     Hostname {{ pass "server/homelab" }}
-    User nnd
     # AddKeysToAgent yes
     # ForwardAgent yes
     # RemoteForward /run/user/1000/gnupg/S.gpg-agent /Users/nnd/.gnupg/S.gpg-agent.extra
+
+Host dlab
+    Hostname 192.168.12.14
+
+Host dlab homelab
+    User nnd
 
 Host *
     User root

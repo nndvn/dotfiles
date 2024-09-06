@@ -11,7 +11,7 @@ running "checking system platform"
 {{ else if (eq .chezmoi.os "darwin") }}
 	ok "macos platform"
     running "installing packages"
-    brew bundle install --no-upgrade --cleanup --no-lock
+    brew bundle install --no-upgrade --cleanup --no-lock --file=~/.brew
 {{ else }}
     fail "platform not supported"
 	exit 0
