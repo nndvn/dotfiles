@@ -1,6 +1,7 @@
 README.md
 
 {{- if eq .chezmoi.os "linux" }}
+.brew-aliases/
 .gnupg/sshcontrol
 .ssh/config
 #.ssh/sshd_config
