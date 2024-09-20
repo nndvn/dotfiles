@@ -4,7 +4,7 @@ README.md
 .brew
 .brew-aliases/
 .gnupg/sshcontrol
-.oh-my-zsh/custom/
+.oh-my-zsh
 .ssh/config
 #.ssh/sshd_config
 Brewfile
