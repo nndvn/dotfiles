@@ -11,8 +11,10 @@
 
 running "looking for tailscale"
 
-if [ command -v tailscale &> /dev/null ]; then
-	warn "tailscale not found"
+if command -v tailscale >/dev/null 2>&1; then
+    ok "tailscale already installed"
+else
+    warn "tailscale not found"
 
 	running "installing tailscale"
 	curl -fsSL https://tailscale.com/install.sh | sh
@@ -20,14 +22,14 @@ if [ command -v tailscale &> /dev/null ]; then
 	ok "show tailscale status"
 	tailscale status
 	ok "docker successfully installed"
-else
-    ok "tailscale already installed"
 fi
 
 
 running "looking for docker"
 
-if [ command -v docker &> /dev/null ]; then
+if command -v docker >/dev/null 2>&1; then
+    ok "docker already installed"
+else
     warn "docker not found"
 
 	running "installing docker"
@@ -41,21 +43,19 @@ if [ command -v docker &> /dev/null ]; then
 	sudo usermod -aG docker $USER
 	ok "show docker info"
 	docker info
-else
-    ok "docker already installed"
 fi
 
 running "looking for ohmyzsh"
 
-if [ command -v omz &> /dev/null ]; then
+if command -v omz >/dev/null 2>&1; then
+    ok "ohmyzsh already installed"
+else
     warn "ohmyzsh not found"
 
     running "installing ohmyzsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     source ~/.zshrc
     ok "ohmyzsh successfully installed"
-else
-    ok "ohmyzsh already installed"
 fi
 
 # curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
