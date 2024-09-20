@@ -11,7 +11,7 @@ sudo hostnamectl chassis $CHASSIS
 
 running "looking for tailscale"
 
-if command -v tailscale &> /dev/null; then
+if [ command -v tailscale &> /dev/null ]; then
 	ok "tailscale already installed"
 else
 	warn "tailscale not found"
@@ -27,7 +27,7 @@ fi
 
 running "looking for docker"
 
-if command -v docker &> /dev/null; then
+if [ command -v docker &> /dev/null ]; then
     ok "docker already installed"
 else
     warn "docker not found"

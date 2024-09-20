@@ -2,13 +2,13 @@
 # https://www.bootc.net/archives/2013/06/07/generating-a-new-gnupg-key/
 
 # PACKAGES="zsh git gpg scdaemon pcscd pass ufw neofetch"
-PACKAGES="zsh git gpg pass ufw neofetch"
+PACKAGES="zsh git gpg pass ufw neofetch magic-wormhole"
 
 running "looking for required packages"
 
 for pkg in $PACKAGES; do
-    # dpkg -s $pkg &> /dev/null
-    if [ $? -eq 0 ]; then
+    # if [ $? -eq 0 ]; then
+    if [ dpkg -s $pkg &> /dev/null ]; then
         ok "$pkg already installed"
     else
         running "installing $pkg"
