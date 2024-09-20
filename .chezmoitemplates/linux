@@ -1,16 +1,14 @@
+#!{{ lookPath "sh" }}
+
 # linux
 
-
 # running "set computer name & hostname"
-
 # read -p "enter computer name: " computer_name
 # sudo hostnamectl hostname --pretty "$computer_name"
 # sudo hostnamectl hostname --static $HOSTNAME
 # sudo hostnamectl chassis $CHASSIS
 
-
 running "looking for tailscale"
-
 if [[ $(command -v tailscale) ]]; then
     ok "tailscale already installed"
 else
@@ -24,9 +22,7 @@ else
 	ok "docker successfully installed"
 fi
 
-
 running "looking for docker"
-
 if [[ $(command -v docker) ]]; then
     ok "docker already installed"
 else
@@ -46,7 +42,6 @@ else
 fi
 
 running "looking for ohmyzsh"
-
 if [[ $(command -v omz) ]]; then
     ok "ohmyzsh already installed"
 else

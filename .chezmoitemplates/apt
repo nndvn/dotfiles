@@ -1,3 +1,5 @@
+#!{{ lookPath "sh" }}
+
 # apt
 # https://www.bootc.net/archives/2013/06/07/generating-a-new-gnupg-key/
 
