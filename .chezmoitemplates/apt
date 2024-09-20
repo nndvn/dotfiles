@@ -7,8 +7,9 @@ PACKAGES="zsh git gpg pass ufw neofetch magic-wormhole"
 running "looking for required packages"
 
 for pkg in $PACKAGES; do
-    dpkg -s "$pkg" >/dev/null 2>&1
-    if [[ $? -eq 0 ]]; then
+    # dpkg -s "$pkg" >/dev/null 2>&1
+    # if [[ $? -eq 0 ]]; then
+    if [[ $(dpkg -s $pkg) ]]; then
         ok "$pkg already installed"
     else
         running "installing $pkg"
