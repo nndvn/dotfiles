@@ -45,5 +45,18 @@ else
 	docker info
 fi
 
+running "looking for ohmyzsh"
+
+if [ command -v omz &> /dev/null ]; then
+    ok "ohmyzsh already installed"
+else
+    warn "ohmyzsh not found"
+
+    running "installing ohmyzsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    source ~/.zshrc
+    ok "ohmyzsh successfully installed"
+fi
+
 # curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 # sudo apt install speedtest
