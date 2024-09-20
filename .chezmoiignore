@@ -13,3 +13,4 @@ Brewfile
 {{- if eq .chezmoi.os "darwin" }}
 .ssh/sshd_config
 {{- end }}
+install.sh
