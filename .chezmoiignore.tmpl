@@ -1,0 +1,14 @@
+{{ if ne .chezmoi.os "darwin" }}
+.brew
+.brew-aliases/
+.gnupg/sshcontrol
+# .oh-my-zsh
+.ssh/config
+{{- end }}
+
+{{ if ne .chezmoi.os "linux" }}
+# .ssh/sshd_config
+{{ end }}
+
+README.md
+install.sh

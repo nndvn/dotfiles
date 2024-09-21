@@ -1,5 +1,10 @@
 # ~/.ssh/config
 
+Host *
+    User root
+    Compression yes
+    TCPKeepAlive yes
+
 Host do01sgp1
     Hostname {{ pass "server/do01sgp1" }}
     Port {{ pass "protocol/ssh/port" }}
@@ -15,8 +20,3 @@ Host dlab
 
 Host dlab homelab
     User nnd
-
-Host *
-    User root
-    Compression yes
-    TCPKeepAlive yes

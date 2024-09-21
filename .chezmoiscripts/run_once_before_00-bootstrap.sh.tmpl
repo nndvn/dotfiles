@@ -1,23 +1,10 @@
 #!{{ lookPath "sh" }}
 
-# templates
-{{ template "helpers" . }}
-{{ template "sudo" . }}
-
-bot "run_once_before_00-bootstrap.sh"
-warn "files change"
-running "checking system platform"
 {{ if (eq .chezmoi.os "linux") }}
-	ok "linux platform"
-    running "clean, update & upgrade system"
-    sudo apt autoremove && sudo apt update && sudo apt full-upgrade -y
-    {{ template "apt" . }}
+	echo "linux platform"
 {{ else if (eq .chezmoi.os "darwin") }}
-	ok "macos platform"
-    running "clean, update & upgrade system"
-    sudo softwareupdate -i -a
-    {{ template "brew" . }}
+	echo "macos platform"
 {{ else }}
-    fail "platform not supported"
+    echo "platform not supported"
 	exit 0
 {{ end }}
