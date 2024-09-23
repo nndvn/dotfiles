@@ -1,7 +1,7 @@
 [user]
 	name = {{ .name }}
 	email = {{ .email }}
-	signingkey = {{ .key }}
+	signingkey = {{ .chezmoi.config.gpg.recipient }}
 [init]
 	defaultBranch = main
 [commit]

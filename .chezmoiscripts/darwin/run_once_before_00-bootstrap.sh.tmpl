@@ -1,0 +1,26 @@
+#!{{ lookPath "sh" }}
+
+# templates
+{{ template "logs" . }}
+{{ template "sudo" . }}
+
+bot "00-bootstrap.sh"
+
+running "looking for homebrew"
+if [[ $(command -v brew) ]]; then
+	ok "homebrew already installed"
+else
+	warn "homebrew not found"
+	running "installing homebrew"
+	# sudo softwareupdate -i -a
+	{{ lookPath "sh" }} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	ok "homebrew successfully installed"
+fi
+
+running "clean, update & upgrade system"
+# brew cleanup && brew update && brew upgrade
+
+running "installing requirements"
+# brew install gnupg git pass
+
+bot "[DONE] 00-bootstrap.sh"

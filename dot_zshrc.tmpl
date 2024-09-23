@@ -1,8 +1,5 @@
 # ~/.zshrc
 
-
-# common config
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 
@@ -36,7 +33,6 @@ export EDITOR=/usr/bin/nano
 alias moi="chezmoi"
 alias neo="neofetch"
 alias clr="clear"
-
 
 # machine-specific configuration
 
@@ -78,7 +74,9 @@ export NVM_DIR="$HOME/.nvm"
     [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # deno
-export PATH="/Users/nnd/.deno/bin:$PATH"
-export PATH=$(brew --prefix openssh)/bin:$PATH
+# export PATH="/Users/nnd/.deno/bin:$PATH"
+
 export HOMEBREW_BUNDLE_FILE=$HOME/.brew
+export PATH=/usr/local/sbin:$PATH
+export PATH=$(brew --prefix openssh)/bin:$PATH
 {{ end -}}

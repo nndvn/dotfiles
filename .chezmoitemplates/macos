@@ -1,0 +1,6 @@
+.brew
+.brew-aliases/
+.gnupg/sshcontrol
+# .oh-my-zsh
+.ssh/config
+.hushlogin

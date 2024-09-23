@@ -1,0 +1,42 @@
+{{- $name := promptString "full name" "NND" -}}
+{{- $email := promptString "email address" "d@nnd.vn" -}}
+{{- $gpg_key_id := promptString "gpg key id" "0xF2591EC12FBF999F" -}}
+{{- $hostname := or (promptStringOnce . "hostname" "your hostname") (output "hostname" "-s") -}}
+{{/* $hostname := promptStringOnce . "hostname" "your hostname" */}}
+{{- $chassis := promptStringOnce . "chassis" "desktop/laptop/server/vm/container" -}}
+{{/* $choices := list "desktop" "laptop" "convertible" "server" "tablet" "handset" "watch" "embedded" "vm" "container" */}}
+{{/* $chassis := promptChoiceOnce . "chassis" "What type of host are you on" $choices */}}
+
+data:
+    name: {{ $name | quote }}
+    email: {{ $email | quote }}
+    key: {{ $gpg_key_id | quote }}
+    user:
+        email: "{{ $email }}"
+        name: "{{ $name }}"
+        gpg:
+            id: "{{ $gpg_key_id }}"
+    host:
+        hostname: "{{ $hostname | lower -}}"
+        arch: "{{ .chezmoi.arch }}"
+        distro:
+            family: "{{ .chezmoi.os }}"
+            id: "{{ get .chezmoi.osRelease "id" | default .chezmoi.os }}"
+        ephemeral: false
+        headless: false
+        type: "{{ $chassis }}"
+
+scriptEnv:
+    HOSTNAME: {{ $hostname | quote }}
+    CHASSIS: {{ $chassis | quote }}
+
+encryption: "gpg"
+
+gpg:
+    recipient: "{{ $gpg_key_id }}"
+    args:
+    - "--quiet"
+
+git:
+    autoCommit: true
+    autoPush: false

@@ -1,0 +1,20 @@
+#!{{ lookPath "sh" }}
+
+# templates
+{{ template "logs" . }}
+{{ template "sudo" . }}
+
+bot "01-import.sh"
+
+running "importing keys"
+curl https://github.com/nndvn.gpg | gpg --import
+
+
+running "importing passwords repo"
+git clone
+
+
+running "installing requirements"
+
+
+bot "[DONE] 01-import.sh"

@@ -1,28 +1,18 @@
-{{- $name := promptString "full name" "NND" -}}
-{{- $email := promptString "email address" "d@nnd.vn" -}}
-{{- $key := promptString "key id" "0xF2591EC12FBF999F" -}}
-
-{{- $hostname := promptStringOnce . "hostname" "your hostname" -}}
-{{/* $choices := list "desktop" "laptop" "convertible" "server" "tablet" "handset" "watch" "embedded" "vm" "container" */}}
-{{/* $chassis := promptChoiceOnce . "chassis" "What type of host are you on" $choices */}}
-{{- $chassis := promptStringOnce . "chassis" "desktop/laptop/server/vm/container" -}}
+{{- $name := (default "NND" (env "FULL_NAME")) -}}
+{{- $email := (default "d@nnd.vn" (promptString "PRIMARY_EMAIL")) -}}
+{{- $gpg_key_id := promptString "gpg key id" "0xF2591EC12FBF999F" -}}
+{{- $password_store_repo := promptStringOnce . "password_store_repo" "local path or git repo url" -}}
 
 data:
-    name: {{ $name | quote }}
-    email: {{ $email | quote }}
-    key: {{ $key | quote }}
-
-scriptEnv:
-    HOSTNAME: {{ $hostname | quote }}
-    CHASSIS: {{ $chassis | quote }}
+    name: "{{ $name }}"
+    email: "{{ $email }}"
 
 encryption: "gpg"
 
 gpg:
-    recipient: {{ $key | quote }}
-    args:
-    - "--quiet"
+    recipient: "{{ $gpg_key_id }}"
+    args: ["--quiet"]
 
 git:
-    autoCommit: false
+    autoCommit: true
     autoPush: false
