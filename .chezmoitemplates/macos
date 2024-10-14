@@ -1,6 +1,7 @@
+.chezmoiscripts/darwin/**
 .brew
 .brew-aliases/
 .gnupg/sshcontrol
-# .oh-my-zsh
 .ssh/config
 .hushlogin
+.DS_Store

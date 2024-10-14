@@ -1,8 +1,9 @@
 {{ if ne .chezmoi.os "darwin" }}
-    {{- template "macos" . }}
+{{- template "macos" . }}
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/debian/**
 # .ssh/sshd_config
 {{ end }}
 

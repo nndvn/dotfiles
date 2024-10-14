@@ -4,7 +4,7 @@
 {{ template "logs" . }}
 {{ template "sudo" . }}
 
-bot "00-bootstrap.sh"
+bot "01-homebrew.sh"
 
 running "looking for homebrew"
 if [[ $(command -v brew) ]]; then
@@ -13,14 +13,8 @@ else
 	warn "homebrew not found"
 	running "installing homebrew"
 	# sudo softwareupdate -i -a
-	{{ lookPath "sh" }} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	# {{ lookPath "sh" }} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	ok "homebrew successfully installed"
 fi
 
-running "clean, update & upgrade system"
-# brew cleanup && brew update && brew upgrade
-
-running "installing requirements"
-# brew install gnupg git pass
-
-bot "[DONE] 00-bootstrap.sh"
+bot "[DONE] 01-homebrew.sh"

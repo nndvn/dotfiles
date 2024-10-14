@@ -1,7 +1,7 @@
 {{- $name := (default "NND" (env "FULL_NAME")) -}}
 {{- $email := (default "d@nnd.vn" (promptString "PRIMARY_EMAIL")) -}}
 {{- $gpg_key_id := promptString "gpg key id" "0xF2591EC12FBF999F" -}}
-{{- $password_store_repo := promptStringOnce . "password_store_repo" "local path or git repo url" -}}
+{{- $password_store_repo := promptStringOnce . "password_store_repo" "local path or git repo url" ".password-store" -}}
 
 data:
     name: "{{ $name }}"
