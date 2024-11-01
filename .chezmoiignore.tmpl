@@ -1,5 +1,11 @@
 {{ if ne .chezmoi.os "darwin" }}
-{{- template "macos" . }}
+.chezmoiscripts/darwin/**
+.brew
+.brew-aliases/
+.gnupg/sshcontrol
+.ssh/config
+.hushlogin
+.DS_Store
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}

@@ -12,9 +12,15 @@ if [[ $(command -v brew) ]]; then
 else
 	warn "homebrew not found"
 	running "installing homebrew"
-	# sudo softwareupdate -i -a
-	# {{ lookPath "sh" }} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	sudo softwareupdate -i -a
+	{{ lookPath "sh" }} -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	ok "homebrew successfully installed"
 fi
+
+running "cleanup, update & upgrade"
+# brew cleanup && brew update && brew upgrade
+
+running "installing requirements"
+# brew install gnupg git pass
 
 bot "[DONE] 01-homebrew.sh"

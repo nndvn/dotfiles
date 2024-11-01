@@ -1,11 +1,16 @@
 {{- $name := (default "NND" (env "FULL_NAME")) -}}
 {{- $email := (default "d@nnd.vn" (promptString "PRIMARY_EMAIL")) -}}
 {{- $gpg_key_id := promptString "gpg key id" "0xF2591EC12FBF999F" -}}
-{{- $password_store_repo := promptStringOnce . "password_store_repo" "local path or git repo url" ".password-store" -}}
+{{- $password_store_dir := promptStringOnce . "password_store_dir" "local path or git repo url" ".password-store" -}}
+{{- $password_store_repo := promptStringOnce . "password_store_repo" "local path or git repo url" "/backup/pwds" -}}
 
 data:
     name: "{{ $name }}"
     email: "{{ $email }}"
+
+scriptEnv:
+    PASSWORD_STORE_DIR: {{ $password_store_dir | quote }}
+    PASSWORD_STORE_REPO: {{ $password_store_repo | quote }}
 
 encryption: "gpg"
 

@@ -1,0 +1,16 @@
+#!{{ lookPath "sh" }}
+
+# templates
+{{ template "logs" . }}
+
+bot "02-imports.sh"
+
+running "importing GPG key"
+# curl https://github.com/nndvn.gpg | gpg --import
+gpg --list-secret-keys --with-keygrip
+
+running "copying pass repo"
+# cp -r $PASSWORD_STORE_REPO ~/$PASSWORD_STORE_DIR
+pass
+
+bot "[DONE] 02-imports.sh"
